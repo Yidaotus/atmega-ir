@@ -1,23 +1,3 @@
-main.c
-Typ
-C
-Größe
-5 KB (5.295 Byte)
-Belegter Speicherplatz
-5 KB (5.295 Byte)
-Speicherort
-IR Freq
-Eigentümer
-Ich
-Geändert am
-16:17 von mir
-Geöffnet am
-16:36 von mir
-Erstellt
-16:20 mit Google Drive Web
-Beschreibung hinzufügen
-Betrachter können die Datei herunterladen.
-
 /*
  * POT_PWM.c
  *
