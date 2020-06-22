@@ -42,17 +42,17 @@ IR_STATE ir_history[50];
 int ir_history_i = 0;
 
 /**
- * A simple in software implementation of a simple Infraret protocol.
- * Works by sampeling an IR diode with a timed interrupt of the atmega128
- * Very unoptimized and mainly used for educational purpose for learning
+ * A simple in software implementation of a simple IR protocol.
+ * Works by sampling an IR diode with a timed interrupt of the atmega128
+ * Very optimized and mainly used for educational purpose for learning
  * interrupt routines on the atmega128.
  */
 int main(void)
 {
-	PORTD |= (1 << PORTD2);											//Port D 2 = Input + internal PullUp
+	PORTD |= (1 << PORTD2);								//Port D 2 = Input + internal PullUp
 
-	EICRA |= (1 << ISC01);											// Falling edge on PD2 = Interrupt
-	EIMSK |= (1 << INT0);											// Enable INT0
+	EICRA |= (1 << ISC01);								// Falling edge on PD2 = Interrupt
+	EIMSK |= (1 << INT0);								// Enable INT0
 	sei();															// Enable global Interrupts
 	uart_init(UART_BAUD_SELECT(UART_BAUD_RATE,F_CPU) );				// Set Baudrate
 
@@ -193,9 +193,9 @@ ISR(INT0_vect) {
 	ir_prev = PIND & (1 << PIND2);
 
 	//Setup the interrupt
-	OCR0A = 40;														      // 16000000 / (8* 40) ~ 50kH
-	TCCR0B |= (1 << CS01);											// 8 prescaler
-	TIMSK0 |= (1 << OCIE0A);										// Output Compare A Match Interrupt Enable
-	TCCR0A |=  (1 << WGM01);										// CTC Top = OCR0A
+	OCR0A = 40;									// 16000000 / (8* 40) ~ 50kH
+	TCCR0B |= (1 << CS01);								// 8 prescaler
+	TIMSK0 |= (1 << OCIE0A);							// Output Compare A Match Interrupt Enable
+	TCCR0A |=  (1 << WGM01);							// CTC Top = OCR0A
 	TCNT0 = 0x00;
 }
