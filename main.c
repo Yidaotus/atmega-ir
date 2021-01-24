@@ -44,7 +44,7 @@ int ir_history_i = 0;
 /**
  * A simple in software implementation of a simple IR protocol.
  * Works by sampling an IR diode with a timed interrupt of the atmega128
- * Very optimized and mainly used for educational purpose for learning
+ * Very unoptimized and mainly used for educational purpose for learning
  * interrupt routines on the atmega128.
  */
 int main(void)
